@@ -1,37 +1,52 @@
-# Philosophers
+<h1 align="center">Philosophers</h1>
 
- <h1>Sobre</h1>
+<div align="center">
+<img alt="Static Badge" src="https://img.shields.io/badge/Status-Finished-green">
+<img alt="Static Badge" src="https://img.shields.io/badge/42-Project-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/Language-C-lightgrey">
+</div>
 
-O projeto **Philosophers** da 42 é uma experiência prática que explora a concorrência e a sincronização na programação, fundamentando-se no célebre problema do "Jantar dos Filósofos" proposto por Edsger Dijkstra em 1965. Neste projeto, a vida de filósofos que se sentam à mesa para jantar é modelada, onde cada filósofo alterna entre os estados de pensar, comer e dormir. Para realizar suas refeições, os filósofos utilizam garfos, que são recursos compartilhados e limitados. O desafio central é garantir que todos os filósofos possam executar suas atividades sem cair em situações de *deadlock*, *data race* ou *starvation*.
+## About
 
-Neste projeto, cada filósofo é representado por uma thread, permitindo a execução concorrente de suas atividades. A implementação rigorosa de mecanismos de sincronização, como mutexes, assegura que os garfos sejam utilizados de forma segura e ordenada. A capacidade de gerenciar a concorrência é crucial para evitar problemas como *data races*, onde múltiplas threads acessam simultaneamente os mesmos recursos, e *deadlocks*, onde threads ficam bloqueadas em espera umas pelas outras.
+42's **Philosophers** project is a hands-on exploration of concurrency and synchronization in programming, based on the well-known **"Dining Philosophers"** problem proposed by Edsger Dijkstra in 1965. The project models the life of philosophers sitting at a table to eat, where each philosopher alternates between three states: thinking, eating, and sleeping. To eat, philosophers rely on forks — a shared, limited resource. The central challenge is making sure every philosopher can carry out their activities without falling into a **deadlock**, a **data race**, or **starvation**.
 
-Como parte do currículo da 42, este projeto não apenas desenvolve habilidades técnicas em programação multithread, mas também incentiva a reflexão sobre design e arquitetura de sistemas, promovendo uma compreensão mais profunda da concorrência e seus desafios. É uma oportunidade para aprimorar tanto a lógica de programação quanto o pensamento crítico, essenciais para o desenvolvimento de software robusto e eficiente.
+In this project, each philosopher is represented by a thread, enabling their activities to run concurrently. Careful use of synchronization mechanisms, such as mutexes, ensures the forks are accessed safely and in an orderly way. Managing concurrency correctly is crucial to avoid issues like data races — where multiple threads access the same resource at the same time — and deadlocks, where threads end up blocked waiting on each other indefinitely.
 
-## Conceitos
+As part of 42's curriculum, this project not only builds technical skills in multithreaded programming, but also encourages thinking about system design and architecture, deepening the understanding of concurrency and the challenges it brings. It's an opportunity to sharpen both programming logic and critical thinking — both essential for building robust, efficient software.
 
-- **Threads**: Cada filósofo é representado por uma thread, permitindo a execução concorrente das atividades de pensar, comer e dormir.
-- **Data Race**: Ocorre quando dois ou mais threads acessam simultaneamente a mesma variável. A sincronização adequada é implementada para evitar esse problema.
-- **Deadlock**: Acontece quando os threads ficam bloqueados, esperando uns pelos outros. Estratégias foram aplicadas para garantir uma ordem na aquisição dos garfos, evitando ciclos de espera.
-- **Gerenciamento de Recursos**: Utilização de mecanismos de sincronização, como mutexes, para assegurar que os garfos sejam utilizados de maneira segura e ordenada.
+## Concepts
 
-## Compilação e Execução
+- **Threads** — each philosopher is represented by a thread, allowing the thinking, eating, and sleeping activities to run concurrently.
+- **Data race** — occurs when two or more threads access the same variable at the same time. Proper synchronization is implemented to prevent this.
+- **Deadlock** — happens when threads become blocked, each waiting on the others. Strategies were applied to enforce a consistent order when acquiring forks, avoiding circular waits.
+- **Resource management** — synchronization mechanisms, such as mutexes, are used to ensure the forks are accessed safely and in order.
 
-Para compilar o projeto, utilize o seguinte comando:
+## Table of Contents
 
-```
+- [Build & Run](#build--run)
+
+## Build & Run
+
+To build the project, run:
+
+```bash
 make
 ```
 
-Para executar use 
+To run it:
 
+```bash
+./philosophers 5 410 200 200
 ```
- ./philosophers 5 410 200 200
 
-```
+The program takes up to 5 arguments:
 
-O programa recebe até 5 argumentos: 
+1. **Number of philosophers**
+2. **Time to die** — how long a philosopher can go without eating before dying (in ms)
+3. **Time to eat** — how long it takes a philosopher to eat (in ms)
+4. **Time to sleep** — how long a philosopher sleeps for (in ms)
+5. *(optional)* **Number of meals** each philosopher must eat before the simulation stops
 
-O número de filósofos, a quantidade de tempo que pode ficar sem comer até morrer, o tempo de comer, o tempo de dormir e opcionalmente o número de refeições que os filósofos devem fazer
+---
 
-
+<p align="center">Built as part of the 42 curriculum 🖥️</p>
